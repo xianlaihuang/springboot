@@ -2,12 +2,14 @@ package controller;
 
 
 
+import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.Map;
 
@@ -47,6 +49,19 @@ public class PageController {
         return mav;
     }
 
+
+    @RequestMapping("/page/page6")
+    public String datatest(HttpServletRequest request){
+        String conditions = request.getParameter("conditions");
+        JSONArray conditionList = JSONArray.fromObject(conditions);
+
+        System.out.println(conditionList);
+
+
+
+
+        return "Success";
+    }
 
 
     /**
